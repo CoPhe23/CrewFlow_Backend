@@ -121,7 +121,7 @@ exports.getMyEvents = async (req, res) => {
       .where("userId", "==", userId)
       .get();
 
-    const memberships = membershipSnap.docs.map(doc => doc.data());
+    const memberships = membershipSnap.docs.map((doc) => doc.data());
     const events = [];
 
     for (const member of memberships) {
@@ -149,7 +149,7 @@ exports.getMyEvents = async (req, res) => {
   }
 };
 
-  exports.getEventById = async (req, res) => {
+exports.getEventById = async (req, res) => {
   try {
     const { eventId } = req.params;
     const userId = req.user.userId;
